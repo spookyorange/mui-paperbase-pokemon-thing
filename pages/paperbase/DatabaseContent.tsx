@@ -17,13 +17,12 @@ function DatabaseContent() {
     const [pokeData, setPokeData] = useState([]);
 
     const getPokeData = async () => {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100');
+        const response = await fetch('/api/pokemon');
         const data = await response.json();
-        setPokeData(data.results.map((pokemon, index) => {
+        setPokeData(data.map((pokemon) => {
             return {
-                id: index + 1,
+                id: pokemon.id,
                 name: pokemon.name,
-                url: pokemon.url,
             }
         }))
     }

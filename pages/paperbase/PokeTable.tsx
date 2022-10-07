@@ -6,6 +6,8 @@ export default function PokeTable({pokeData}) {
     const columns: GridColDef[] = [
         {field: 'id', headerName: 'ID', width: 70},
         {field: 'name', headerName: 'Name', width: 130},
+        {field: 'type', headerName: 'Type', width: 120},
+        {field: 'power', headerName: 'Power', width: 75},
     ];
 
     return (

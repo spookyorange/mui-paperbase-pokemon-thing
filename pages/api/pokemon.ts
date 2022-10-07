@@ -1,11 +1,81 @@
 import {NextApiRequest, NextApiResponse} from "next";
 
+interface Pokemon {
+    id: number;
+    name: string;
+    type: string;
+    power: number;
+}
+
+const allPokemon: Pokemon[] = [
+    {
+        id: 1,
+        name: "Bulbasaur",
+        type: "Grass",
+        power: 100
+    },
+    {
+        id: 2,
+        name: "Charmander",
+        type: "Fire",
+        power: 100
+    },
+    {
+        id: 3,
+        name: "Squirtle",
+        type: "Water",
+        power: 100
+    },
+    {
+        id: 4,
+        name: "Pikachu",
+        type: "Electric",
+        power: 100
+    },
+    {
+        id: 5,
+        name: "Eevee",
+        type: "Normal",
+        power: 100
+    },
+    {
+        id: 6,
+        name: "Mew",
+        type: "Psychic",
+        power: 100
+    },
+    {
+        id: 7,
+        name: "Mewtwo",
+        type: "Psychic",
+        power: 100
+    },
+    {
+        id: 8,
+        name: "Snorlax",
+        type: "Normal",
+        power: 100
+    },
+    {
+        id: 9,
+        name: "Gengar",
+        type: "Ghost",
+        power: 100
+    },
+    {
+        id: 10,
+        name: "Moltres",
+        type: "Fire",
+        power: 100
+    },
+    {
+        id: 11,
+        name: "Zapdos",
+        type: "Electric",
+        power: 100
+    },
+]
+
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-    res.status(200).json([{id: 1, name: 'Pikachu'}, {id: 2, name: 'Bulbasaur'},
-    {id: 3, name: 'Charmander'}, {id: 4, name: 'Squirtle'}, {id: 5, name: 'Caterpie'},
-    {id: 6, name: 'Weedle'}, {id: 7, name: 'Pidgey'}, {id: 8, name: 'Rattata'},
-    {id: 9, name: 'Spearow'}, {id: 10, name: 'Ekans'}, {id: 11, name: 'Pikachu'},
-    {id: 12, name: 'Sandshrew'}, {id: 13, name: 'Nidoran'}, {id: 14, name: 'Nidoran'},
-    {id: 15, name: 'Clefairy'}, {id: 16, name: 'Vulpix'}, {id: 17, name: 'Jigglypuff'},
-])
+    res.status(200).json([...allPokemon])
 }

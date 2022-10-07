@@ -23,6 +23,8 @@ function DatabaseContent() {
             return {
                 id: pokemon.id,
                 name: pokemon.name,
+                type: pokemon.type,
+                power: pokemon.power,
             }
         }))
     }

@@ -1,7 +1,5 @@
 import type {NextPage} from 'next'
-import Header from './paperbase/Header'
-import Content from "./paperbase/Content";
-import Paperbase from "./paperbase/Paperbase";
+import Paperbase from "./paperbase/Paperbase.tsx";
 
 const Home: NextPage = () => {
     return (

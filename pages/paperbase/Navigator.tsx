@@ -17,6 +17,7 @@ import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputCompone
 import TimerIcon from '@mui/icons-material/Timer';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
+import Link from 'next/link'
 
 const categories = [
   {
@@ -25,12 +26,13 @@ const categories = [
       {
         id: 'Authentication',
         icon: <PeopleIcon />,
+        href: '/',
         active: true,
       },
-      { id: 'Database', icon: <DnsRoundedIcon /> },
-      { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
-      { id: 'Hosting', icon: <PublicIcon /> },
-      { id: 'Functions', icon: <SettingsEthernetIcon /> },
+      { id: 'Database', icon: <DnsRoundedIcon />, href: '/database' },
+      { id: 'Storage', icon: <PermMediaOutlinedIcon />, href: '/database' },
+      { id: 'Hosting', icon: <PublicIcon />, href: '/database' },
+      { id: 'Functions', icon: <SettingsEthernetIcon /> , href: '/database'},
       {
         id: 'Machine learning',
         icon: <SettingsInputComponentIcon />,
@@ -82,13 +84,15 @@ export default function Navigator(props: DrawerProps) {
             <ListItem sx={{ py: 2, px: 3 }}>
               <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
-              <ListItem disablePadding key={childId}>
+            {children.map(({ id: childId, icon, active, href: to }) => (
+                <Link href={`${to}`} key={childId}>
+                <ListItem disablePadding key={childId}>
                 <ListItemButton selected={active} sx={item}>
                   <ListItemIcon>{icon}</ListItemIcon>
                   <ListItemText>{childId}</ListItemText>
                 </ListItemButton>
               </ListItem>
+                </Link>
             ))}
             <Divider sx={{ mt: 2 }} />
           </Box>
